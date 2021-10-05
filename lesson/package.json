@@ -1,0 +1,16 @@
+{
+  "name": "lesson",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "bundle":"webpack",  //运行npm bundle命时,自动执行webpack命令
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {},
+  "description": ""
+}
