@@ -40,6 +40,29 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,  //如果代码存在node_nodules中
+        use: {
+          loader: "babel-loader",
+          options: {
+            "presets": ['@babel/preset-env'],
+            "plugins": [
+              [
+                "@babel/plugin-transform-runtime",
+                {
+                  "absoluteRuntime": false,
+                  "corejs": 2,
+                  "helpers": true,
+                  "regenerator": true,
+                  "version": "7.0.0-beta.0"
+                }
+              ]
+            ]
+
+          }
+        }
       }
     ]
   },
