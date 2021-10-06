@@ -1,4 +1,4 @@
-// import "@babel/polyfill";
+
 // import number from './number'
 // import button from './button'
 
@@ -14,15 +14,24 @@
 //   })
 // }
 
-const arr = [
-  new Promise(() => { }),
-  new Promise(() => { })
-]
+// const arr = [
+//   new Promise(() => { }),
+//   new Promise(() => { })
+// ]
 
-arr.map(item => {
-  console.log(item)
-})
+// arr.map(item => {
+//   console.log(item)
+// })
 
+import "@babel/polyfill";
 
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
+class APP extends Component {
+  render() {
+    return (<div>hellon world</div>)
+  }
+}
 
+ReactDOM.render(<APP />, document.getElementById('root'))
