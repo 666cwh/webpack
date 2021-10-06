@@ -1,6 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+//引入webpack
+const webpack = require('webpack')
 
 
 // CommonJS语法
@@ -18,7 +20,9 @@ module.exports = {
   },
   devServer: {
     contentBase: 'dist',  //告诉服务器从哪个目录中提供内容,绝对路径
-    open: true  //自动打开浏览器
+    open: true,  //自动打开浏览器
+    hot: true, //开启Hot Module Replacement
+    hotOnly: true  //不让浏览器自动刷新
   },
   module: { //打包模块
     rules: [ //规则,数组类型
@@ -48,6 +52,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'  //以指定路径下的html文件生成打包后的html文件
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
