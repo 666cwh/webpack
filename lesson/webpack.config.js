@@ -16,6 +16,10 @@ module.exports = {
   entry: {
     main: './src/index.js',
   },
+  devServer: {
+    contentBase: 'dist',  //告诉服务器从哪个目录中提供内容,绝对路径
+    open: true  //自动打开浏览器
+  },
   module: { //打包模块
     rules: [ //规则,数组类型
       {
@@ -36,6 +40,7 @@ module.exports = {
     ]
   },
   output: {
+    // publicPath: '/',  //所有打包生成的文件引用前都添加一个跟路径,确保打包的文件不会有路径问题
     filename: '[name].js', //打包后的文件名字
     path: path.resolve(__dirname, 'dist'),  //打包后文件位置(绝对路径,注意需要引入webpack核心模块path,通过path.resolve(__dirname, '打包文件夹名称'),__dirname:webpack.config.js所在当前目录路径)
   },
